@@ -1,6 +1,10 @@
 h1, h2, p, fieldset{
     text-align: center;
 }
+.picks {
+    width: 1000px;
+    height: 1000px;
+}
 .picks img{
     margin: auto;
     width: 500px;
