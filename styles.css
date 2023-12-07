@@ -1,8 +1,8 @@
 h1, h2, p, fieldset{
     text-align: center;
 }
-#picks {
-    margin-left: auto;
-    margin-right: auto;
-    width: 80%;
+.picks img{
+    margin: auto;
+    width: 500px;
+    display:block;
 }
