@@ -13,10 +13,16 @@
 		<h2>Picks</h2>
         	<form action="https://formspree.io/f/xeqbyaal" method="POST">
         	<fieldset>
-        	<label><input id="jaguars" type="radio" name="jaguars-steelers" value="jaguars" checked> Jaguars</label>
+        	<label><input id="jaguars" type="radio" name="jaguars-steelers" value="jaguars"> Jaguars</label>
         	<label><input id="steelers" type="radio" name="jaguars-steelers" value="steelers"> Steelers</label>
         	<label><input id="lock" type="checkbox" name="locks" value="jaguars-steelers-lock"> Lock?</label>
 		</fieldset>
+		<fieldset>
+                <label><input id="falcons" type="radio" name="falcons-buccaneers" value="falcons"> Falcons</label>
+                <label><input id="buccaneers" type="radio" name="falcons-buccaneers" value="buccaneers"> Buccaneers</label>
+                <label><input id="lock" type="checkbox" name="locks" value="falcons-buccaneers-lock"> Lock?</label>
+                </fieldset>
+		<input type="text" name="name" placeholder="Name" required>
 		<button type="submit">Submit</button>         
 	</body>
 </html>
