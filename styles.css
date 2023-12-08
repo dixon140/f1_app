@@ -38,16 +38,13 @@ fieldset {
 }
 .text {
     display: block;
-    width: 320px;
     height: 30px;
-    margin-left: auto;
-    margin-right: auto;
 }
 .input-box {
-    width: 98.3%;
+    width: 315px;
     height: 20px;
     font-size: 18px;
     text-align: center;
-    margin-left: auto;
+    margin-left: 2.2px;
     margin-right: auto;
 }
