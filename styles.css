@@ -2,6 +2,10 @@ h1, h2, fieldset, p {
     display: block;
     text-align: center;
     font-family: Arial, Helvetica, sans-serif;
+    color: white;
+}
+.page {
+    background-color: #121212;
 }
 .image {
     display: block;
