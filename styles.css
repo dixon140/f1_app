@@ -11,13 +11,13 @@ h1, h2, fieldset, p {
 }
 .picks {
     display: block;
-    width: 50%;
+    width: 350px;
     margin-left: auto;
     margin-right: auto;
 }
 .center {
     display: block;
-    width: 24%;
+    width: 205px;
     margin-left: auto;
     margin-right: auto;
 }
