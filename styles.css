@@ -10,6 +10,7 @@ h1, h2, fieldset, p {
     margin-right: auto;
 }
 .picks {
+    display: block;
     width: 50%;
     margin-left: auto;
     margin-right: auto;
