@@ -36,6 +36,7 @@ fieldset {
     text-align: center;
     font-family:SourceSans3, Arial, Helvetica, sans-serif;
     color: white;
+    border-color: darkgray
 }
 .page {
     background-color: #121212;
@@ -79,8 +80,14 @@ fieldset {
     height: 20px;
     font-size: 18px;
     text-align: center;
+    background-color: gray;
+    color: black;
+    
 }
-
+::placeholder {
+    color: black;
+    opacity: 0.6;
+}
 @media only screen and (min-width: 1000px) {
     .input-box {
         width: 320px;
