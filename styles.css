@@ -30,7 +30,9 @@ p {
 }
 .label {
     margin-bottom: 15px;
+    margin-top: 15px;
 }
+
 fieldset {
     display: block;
     text-align: center;
