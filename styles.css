@@ -119,7 +119,17 @@ a {
 }
 .stand {
     margin-top: 5px;
+    margin-bottom:5px
 }
 .space {
     margin-top: 20px;
+}
+.standings {
+    width: 350px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.standhr {
+    width: 190px;
 }
