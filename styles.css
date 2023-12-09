@@ -12,6 +12,7 @@ h1 {
     font-family: BabasNeue, Arial, Helvetica, sans-serif;
     font-size: 50px;
     color: white;
+    margin-bottom: 10px;
 }
 h2 {
     font-size: 35px;
@@ -106,4 +107,19 @@ fieldset {
         font-size: 18px;
         text-align: center;
     }
+}
+nav {
+    display: block;
+    text-align: center;
+}
+a {
+    color: white;
+    font-family: SourceSans3;
+    
+}
+.stand {
+    margin-top: 5px;
+}
+.space {
+    margin-top: 20px;
 }
