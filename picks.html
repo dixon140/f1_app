@@ -1,113 +1,254 @@
 <!DOCTYPE html>
 <html lang="en" class="page">
-        <head>
-                <meta charset="UTF-8">
-                <title>NFL Picks</title>
-                <link rel="stylesheet" href="styles.css">
-                <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        </head>
-	<body>
-                
-                <div>
-                        <h1>NFL Picks</h1>
-                        <nav>
-                                <a href="./index.html">Standings</a>
-                                <a href="./picks.html">Make Your Picks</a>
-                                <a href="./ethan.html">Ethan</a>
-                                <a href="./calvin.html">Calvin</a>
-                                <a href="./elliot.html">Elliot</a>
+    <head>
+        <meta charset="UTF-8">
+        <title>NFL Picks</title>
+        <link rel="stylesheet" href="styles.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <div>
+            <h1>NFL Picks</h1>
+            <nav>
+                    <a href="./index.html">Standings</a>
+                    <a href="./picks.html">Make Your Picks</a>
+                    <a href="./ethan.html">Ethan</a>
+                    <a href="./calvin.html">Calvin</a>
+                    <a href="./elliot.html">Elliot</a>
 
-                        </nav>
-                        <hr>
-                        <h2 class="label">Picks</h2>
-                        <div class="picks">
-                        <form action="https://formspree.io/f/xeqbyaal" method="POST">
-                        <label class="text"><input type="text" name="Name" placeholder="Name" class="input-box" required></label>
-                        <fieldset>
-                        <label><input id="Saints" type="radio" name="NO-LAR" value="Saints"> Saints</label>
-                        <label><input id="Rams" type="radio" name="NO-LAR" value="Rams"> Rams</label>
-                        <label><input id="lock" type="checkbox" name="locks" value="no-lar-lock"> Lock?</label>
-                        </fieldset>
-                        <fieldset>
-                        <label><input id="Bengals" type="radio" name="CIN-PIT" value="Bengals"> Bengals</label>
-                        <label><input id="Steelers" type="radio" name="CIN-PIT" value="Steelers"> Steelers</label>
-                        <label><input id="lock" type="checkbox" name="locks" value="cin-pit-lock"> Lock?</label>
-                        </fieldset>
-                        <fieldset>
-                        <label><input id="Bills" type="radio" name="BUF-LAC" value="Bills"> Bills</label>
-                        <label><input id="Chargers" type="radio" name="BUF-LAC" value="Chargers"> Chargers</label>
-                        <label><input id="lock" type="checkbox" name="locks" value="buf-lac-lock"> Lock?</label>
-                        </fieldset>
-                        <fieldset>
-                        <label><input id="Commanders" type="radio" name="WAS-NYJ" value="Commanders"> Commanders</label>
-                        <label><input id="Jets" type="radio" name="WAS-NYJ" value="Jets"> Jets</label>
-                        <label><input id="lock" type="checkbox" name="locks" value="was-nyj-lock"> Lock?</label>
-                        </fieldset>
-                        <fieldset>
-                        <label><input id="Lions" type="radio" name="DET-MIN" value="Lions"> Lions</label>
-                        <label><input id="Vikings" type="radio" name="DET-MIN" value="Vikings"> Vikings</label>
-                        <label><input id="lock" type="checkbox" name="locks" value="det-min-lock"> Lock?</label>
-                        </fieldset>
-                        <fieldset>
-                        <label><input id="Browns" type="radio" name="CLE-HOU" value="Browns"> Browns</label>
-                        <label><input id="Texans" type="radio" name="CLE-HOU" value="Texans"> Texans</label>
-                        <label><input id="lock" type="checkbox" name="locks" value="cle-hou-lock"> Lock?</label>
-                        </fieldset>
-                        <fieldset>
-                        <label><input id="Packers" type="radio" name="GB-CAR" value="Packers"> Packers</label>
-                        <label><input id="Panthers" type="radio" name="GB-CAR" value="Panthers"> Panthers</label>
-                        <label><input id="lock" type="checkbox" name="locks" value="gb-car-lock"> Lock?</label>
-                        </fieldset>
-                        <fieldset>
-                        <label><input id="Seahawks" type="radio" name="SEA-TEN" value="Seahawks"> Seahawks</label>
-                        <label><input id="Titans" type="radio" name="SEA-TEN" value="Titans"> Titans</label>
-                        <label><input id="lock" type="checkbox" name="locks" value="sea-ten-lock"> Lock?</label>
-                        </fieldset>
-                        <fieldset>
-                        <label><input id="Colts" type="radio" name="IND-ATL" value="Colts"> Colts</label>
-                        <label><input id="Falcons" type="radio" name="IND-ATL" value="Falcons"> Falcons</label>
-                        <label><input id="lock" type="checkbox" name="locks" value="ind-atl-lock"> Lock?</label>
-                        </fieldset>
-                        <fieldset>
-                        <label><input id="Jaguars" type="radio" name="JAX-TB" value="Jaguars"> Jaguars</label>
-                        <label><input id="Buccaneers" type="radio" name="JAX-TB" value="Buccaneers"> Buccaneers</label>
-                        <label><input id="lock" type="checkbox" name="locks" value="jax-tb-lock"> Lock?</label>
-                        </fieldset>
-                        <fieldset>
-                        <label><input id="Cowboys" type="radio" name="DAL-MIA" value="Cowboys"> Cowboys</label>
-                        <label><input id="Dolphins" type="radio" name="DAL-MIA" value="Dolphins"> Dolphins</label>
-                        <label><input id="lock" type="checkbox" name="locks" value="dal-mia-lock"> Lock?</label>
-                        </fieldset>
-                        <fieldset>
-                        <label><input id="Cardinals" type="radio" name="ARI-CHI" value="Cardinals"> Cardinals</label>
-                        <label><input id="Bears" type="radio" name="ARI-CHI" value="Bears"> Bears</label>
-                        <label><input id="lock" type="checkbox" name="locks" value="ari-chi-lock"> Lock?</label>
-                        </fieldset>
-                        <fieldset>
-                        <label><input id="Patriots" type="radio" name="NE-DEN" value="Patriots"> Patriots</label>
-                        <label><input id="Broncos" type="radio" name="NE-DEN" value="Broncos"> Broncos</label>
-                        <label><input id="lock" type="checkbox" name="locks" value="ne-den-lock"> Lock?</label>
-                        </fieldset>
-                        <fieldset>
-                        <label><input id="Raiders" type="radio" name="LV-KC" value="Raiders"> Raiders</label>
-                        <label><input id="Chiefs" type="radio" name="LV-KC" value="Chiefs"> Chiefs</label>
-                        <label><input id="lock" type="checkbox" name="locks" value="lv-kc-lock"> Lock?</label>
-                        </fieldset>
-                        <fieldset>
-                        <label><input id="Giants" type="radio" name="NYG-PHI" value="Giants"> Giants</label>
-                        <label><input id="Eagles" type="radio" name="NYG-PHI" value="Eagles"> Eagles</label>
-                        <label><input id="lock" type="checkbox" name="locks" value="nyg-phi-lock"> Lock?</label>
-                        </fieldset>
-                        <fieldset>
-                        <label><input id="Ravens" type="radio" name="BAL-SF" value="Ravens"> Ravens</label>
-                        <label><input id="49ers" type="radio" name="BAL-SF" value="49ers"> 49ers</label>
-                        <label><input id="lock" type="checkbox" name="locks" value="bal-sf-lock"> Lock?</label>
-                        </fieldset>
-                        <div class="center">
-                                <button type="submit">Submit</button>     
-                        </div>    
-                        </form>
-                        </div>
+            </nav>
+            <hr>
+            <h2 style="margin: 15px">Picks</h2>
+            <div class="picks">
+                <form action="https://formspree.io/f/xeqbyaal" method="POST">
+                <label class="text"><input type="text" name="Name" placeholder="Name" class="input-box" required></label>
+                <fieldset>
+                <label>
+                    <input class="rad" id="Saints" type="radio" name="NO-LAR" value="Saints">
+                    <img src="teams/saints.png" class="team">
+                </label>
+                <label>
+                    <input class="rad" id="Rams" type="radio" name="NO-LAR" value="Rams">
+                    <img src="teams/rams.png" class="team">
+                <label>
+                    <input class="check" id="lock" type="checkbox" name="locks" value="no-lar-lock">
+                    <img class="lock" src="lock.png">
+                </label>
+                </fieldset>
+                <fieldset>
+                <label>
+                    <input class="rad" id="Bengals" type="radio" name="CIN-PIT" value="Bengals">
+                    <img src="teams/bengals.png" class="team">
+                </label>
+                <label>
+                    <input class="rad" id="Steelers" type="radio" name="CIN-PIT" value="Steelers">
+                    <img src="teams/steelers.png" class="team">
+                </label>
+                <label>
+                    <input class="check" id="lock" type="checkbox" name="locks" value="cin-pit-lock">
+                    <img class="lock" src="lock.png">
+                </label>
+                </fieldset>
+                <fieldset>
+                <label>
+                    <input class="rad" id="Bills" type="radio" name="BUF-LAC" value="Bills">
+                    <img src="teams/bills.png" class="team">
+                </label>
+                <label>
+                    <input class="rad" id="Chargers" type="radio" name="BUF-LAC" value="Chargers">
+                    <img src="teams/chargers.png" class="team">
+                </label>
+                <label>
+                    <input class="check" id="lock" type="checkbox" name="locks" value="cin-pit-lock">
+                    <img class="lock" src="lock.png">
+                </label>
+                </fieldset>
+                <fieldset>
+                <label>
+                    <input class="rad" id="Commanders" type="radio" name="WAS-NYJ" value="Commanders">
+                    <img src="teams/commanders.png" class="team">
+                </label>
+                <label>
+                    <input class="rad" id="Jets" type="radio" name="WAS-NYJ" value="Jets">
+                    <img src="teams/jets.png" class="team">
+                </label>
+                <label>
+                    <input class="check" id="lock" type="checkbox" name="locks" value="was-nyj-lock">
+                    <img class="lock" src="lock.png">
+                </label>
+                </fieldset>
+                <fieldset>
+                <label>
+                    <input class="rad" id="Lions" type="radio" name="DET-MIN" value="Lions">
+                    <img src="teams/lions.png" class="team">
+                </label>
+                <label>
+                    <input class="rad" id="Vikings" type="radio" name="DET-MIN" value="Vikings">
+                    <img src="teams/vikings.png" class="team">
+                </label>
+                <label>
+                    <input class="check" id="lock" type="checkbox" name="locks" value="det-min-lock">
+                    <img class="lock" src="lock.png">
+                </label>
+                </fieldset>
+                <fieldset>
+                <label>
+                    <input class="rad" id="Browns" type="radio" name="CLE-HOU" value="Browns">
+                    <img src="teams/browns.png" class="team">
+                </label>
+                <label>
+                    <input class="rad" id="Texans" type="radio" name="CLE-HOU" value="Texans">
+                    <img src="teams/texans.png" class="team">
+                </label>
+                <label>
+                    <input class="check" id="lock" type="checkbox" name="locks" value="cle-hou-lock">
+                    <img class="lock" src="lock.png">
+                </label>
+                </fieldset>
+                <fieldset>
+                <label>
+                    <input class="rad" id="Packers" type="radio" name="GB-CAR" value="Packers">
+                    <img src="teams/packers.png" class="team">
+                </label>
+                <label>
+                    <input class="rad" id="Panthers" type="radio" name="GB-CAR" value="Panthers">
+                    <img src="teams/panthers.png" class="team">
+                </label>
+                <label>
+                    <input class="check" id="lock" type="checkbox" name="locks" value="gb-car-lock">
+                    <img class="lock" src="lock.png">
+                </label>
+                </fieldset>
+                <fieldset>
+                <label>
+                    <input class="rad" id="Seahawks" type="radio" name="SEA-TEN" value="Seahawks">
+                    <img src="teams/seahawks.png" class="team">
+                </label>
+                <label>
+                    <input class="rad" id="Titans" type="radio" name="SEA-TEN" value="Titans">
+                    <img src="teams/titans.png" class="team">
+                </label>
+                <label>
+                    <input class="check" id="lock" type="checkbox" name="locks" value="sea-ten-lock">
+                    <img class="lock" src="lock.png">
+                </label>
+                </fieldset>
+                <fieldset>
+                <label>
+                    <input class="rad" id="Colts" type="radio" name="IND-ATL" value="Colts">
+                    <img src="teams/colts.png" class="team">
+                </label>
+                <label>
+                    <input class="rad" id="Falcons" type="radio" name="IND-ATL" value="Falcons">
+                    <img src="teams/falcons.png" class="team">
+                </label>
+                <label>
+                    <input class="check" id="lock" type="checkbox" name="locks" value="ind-atl-lock">
+                    <img class="lock" src="lock.png">
+                </label>
+                </fieldset>
+                <fieldset>
+                <label>
+                    <input class="rad" id="Jaguars" type="radio" name="JAX-TB" value="Jaguars">
+                    <img src="teams/jaguars.png" class="team">
+                </label>
+                <label>
+                    <input class="rad" id="Buccaneers" type="radio" name="JAX-TB" value="Buccaneers">
+                    <img src="teams/buccaneers.png" class="team">
+                </label>
+                <label>
+                    <input class="check" id="lock" type="checkbox" name="locks" value="jax-tb-lock">
+                    <img class="lock" src="lock.png">
+                </label>
+                </fieldset>
+                <fieldset>
+                <label>
+                    <input class="rad" id="Cowboys" type="radio" name="DAL-MIA" value="Cowboys">
+                    <img src="teams/cowboys.png" class="team">
+                </label>
+                <label>
+                    <input class="rad" id="Dolphins" type="radio" name="DAL-MIA" value="Dolphins">
+                    <img src="teams/dolphins.png" class="team">
+                </label>
+                <label>
+                    <input class="check" id="lock" type="checkbox" name="locks" value="dal-mia-lock">
+                    <img class="lock" src="lock.png">
+                </label>
+                </fieldset>
+                <fieldset>
+                <label>
+                    <input class="rad" id="Cardinals" type="radio" name="ARI-CHI" value="Cardinals">
+                    <img src="teams/cardinals.png" class="team">
+                </label>
+                <label>
+                    <input class="rad" id="Bears" type="radio" name="ARI-CHI" value="Bears">
+                    <img src="teams/bears.png" class="team">
+                <label>
+                    <input class="check" id="lock" type="checkbox" name="locks" value="ari-chi-lock">
+                    <img class="lock" src="lock.png">
+                </label>
+                </fieldset>
+                <fieldset>
+                <label>
+                    <input class="rad" id="Patriots" type="radio" name="NE-DEN" value="Patriots">
+                    <img src="teams/patriots.png" class="team">
+                </label>
+                <label>
+                    <input class="rad" id="Broncos" type="radio" name="NE-DEN" value="Broncos">
+                    <img src="teams/broncos.png" class="team">
+                </label>
+                <label>
+                    <input class="check" id="lock" type="checkbox" name="locks" value="ne-den-lock">
+                    <img class="lock" src="lock.png">
+                </label>
+                </fieldset>
+                <fieldset>
+                <label>
+                    <input class="rad" id="Raiders" type="radio" name="LV-KC" value="Raiders">
+                    <img src="teams/raiders.png" class="team">
+                </label>
+                <label>
+                    <input class="rad" id="Chiefs" type="radio" name="LV-KC" value="Chiefs">
+                    <img src="teams/chiefs.png" class="team">
+                </label>
+                <label>
+                    <input class="check" id="lock" type="checkbox" name="locks" value="lv-kc-lock">
+                    <img class="lock" src="lock.png">
+                </label>
+                </fieldset>
+                <fieldset>
+                <label>
+                    <input class="rad" id="Giants" type="radio" name="NYG-PHI" value="Giants">
+                    <img src="teams/giants.png" class="team">
+                </label>
+                <label>
+                    <input class="rad" id="Eagles" type="radio" name="NYG-PHI" value="Eagles">
+                    <img src="teams/eagles.png" class="team">
+                </label>
+                <label>
+                    <input class="check" id="lock" type="checkbox" name="locks" value="nyg-phi-lock">
+                    <img class="lock" src="lock.png">
+                </label>
+                </fieldset>
+                <fieldset>
+                <label>
+                    <input class="rad" id="Ravens" type="radio" name="BAL-SF" value="Ravens">
+                    <img src="teams/ravens.png" class="team">
+                </label>
+                <label>
+                    <input class="rad" id="49ers" type="radio" name="BAL-SF" value="49ers">
+                    <img src="teams/49ers.png" class="team">
+                </label>
+                <label>
+                    <input class="check" id="lock" type="checkbox" name="locks" value="bal-sf-lock">
+                    <img class="lock" src="lock.png">
+                </label>
+                </fieldset>
+                <div class="center">
+                        <button type="submit">Submit</button>     
+                </div>    
+                </form>
                 </div>
-	</body>
+        </div>
+    </body>
 </html>

@@ -134,3 +134,44 @@ a {
 .standhr {
     width: 190px;
 }
+
+.rad {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+[type=radio] + img {
+    opacity: 50%;
+    cursor: pointer;
+}
+
+[type=radio]:checked + img {
+    opacity: 100%;
+}
+
+.check {
+    position:absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+[type=checkbox]:not(:checked) + .lock {
+    opacity: 50%;
+}
+
+[type=checkbox]:checked + .lock {
+    opacity: 100%;
+}
+
+.lock {
+    width: 30px;
+    padding-bottom: 2.2em;
+    padding-left: 2em;
+}
+
+.team {
+    width: 80px;
+    margin: 10px;
+}
