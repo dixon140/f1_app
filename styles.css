@@ -175,3 +175,13 @@ a {
     width: 80px;
     margin: 10px;
 }
+
+
+.submit {
+    display: block;
+    width: 50px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 100px;
+    margin-top: 20px;
+}
