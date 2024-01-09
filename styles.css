@@ -185,3 +185,8 @@ a {
     margin-bottom: 100px;
     margin-top: 20px;
 }
+
+.win {
+    color: gold;
+    font-family: SourceSans3;
+}
