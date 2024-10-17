@@ -1,0 +1,190 @@
+@font-face {
+    font-family: BabasNeue;
+    src: url(../BebasNeue-Regular.otf);
+}
+@font-face {
+    font-family: SourceSans3;
+    src: url(../SourceSans3-Regular.ttf);
+}
+h1 {
+    display: block;
+    text-align: center;
+    font-family: BabasNeue, Arial, Helvetica, sans-serif;
+    font-size: 50px;
+    color: white;
+    margin-bottom: 10px;
+}
+h2 {
+    font-size: 35px;
+    margin-bottom: -5px;
+    display: block;
+    text-align: center;
+    color: white;
+    font-family: SourceSans3, Arial, Helvetica, sans-serif;
+    
+}
+p {
+    display: block;
+    text-align: center;
+    font-family: SourceSans3, Arial, Helvetica, sans-serif;
+    color: white;
+}
+.label {
+    margin-bottom: 15px;
+    margin-top: 15px;
+}
+
+fieldset {
+    display: block;
+    text-align: center;
+    font-family:SourceSans3, Arial, Helvetica, sans-serif;
+    color: white;
+    border-color: darkgray
+}
+.page {
+    background-color: #121212;
+}
+
+.image {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width:400px;
+    margin-bottom: 10px;
+}
+
+@media only screen and (min-width: 700px) {
+    .image {
+        display: block;
+        margin-right: auto;
+        margin-left: auto;
+    }
+}
+@media only screen and (min-width: 1100px) {
+    .image {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+.picks {
+    display: block;
+    width: 325px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.center {
+    display: block;
+    width: 50px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.text {
+    display: block;
+    height: 30px;
+}
+
+.input-box {
+    width: 305px;
+    height: 20px;
+    font-size: 18px;
+    text-align: center;
+    background-color: lightgray;
+    color: black;
+    
+}
+::placeholder {
+    color: black;
+    opacity: 0.6;
+}
+@media only screen and (min-width: 1000px) {
+    .input-box {
+        width: 320px;
+        height: 20px;
+        font-size: 18px;
+        text-align: center;
+    }
+}
+nav {
+    display: block;
+    text-align: center;
+}
+a {
+    color: white;
+    font-family: SourceSans3;
+    margin: 0 5px;
+    
+}
+.stand {
+    margin-top: 5px;
+    margin-bottom:5px
+}
+.space {
+    margin-top: 20px;
+}
+.standings {
+    width: 350px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.standhr {
+    width: 190px;
+}
+
+.rad {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+[type=radio] + img {
+    opacity: 50%;
+    cursor: pointer;
+}
+
+[type=radio]:checked + img {
+    opacity: 100%;
+}
+
+.check {
+    position:absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+[type=checkbox]:not(:checked) + .lock {
+    opacity: 50%;
+}
+
+[type=checkbox]:checked + .lock {
+    opacity: 100%;
+}
+
+.lock {
+    width: 30px;
+    padding-bottom: 2.2em;
+    padding-left: 2em;
+}
+
+.team {
+    width: 80px;
+    margin: 10px;
+}
+
+
+.submit {
+    display: block;
+    width: 50px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 100px;
+    margin-top: 20px;
+}
+
+.win {
+    color: gold;
+    font-family: SourceSans3;
+}
