@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="./styles.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dropdown to Change Content</title>
+  <style>
+    body {
+        background-color: black;
+    }
+    .content {
+      display: none;
+      margin-top: 20px;
+    }
+  </style>
+  <script>
+    function showContent() {
+      // Hide all content sections
+      const sections = document.querySelectorAll('.content');
+      sections.forEach(section => section.style.display = 'none');
+      
+      // Get the selected value from the dropdown
+      const selectedValue = document.getElementById('contentDropdown').value;
+
+      // Show the selected content section
+      const selectedContent = document.getElementById(selectedValue);
+      if (selectedContent) {
+        selectedContent.style.display = 'block';
+      }
+    }
+  </script>
+</head>
+<body>
+  <h1>Zombies In Spaceland</h1>
+
+  <!-- Dropdown menu -->
+  <select id="contentDropdown" onchange="showContent()">
+    <option value="">-- Select an Option --</option>
+    <option value="section1">Easter Egg</option>
+    <option value="section2">Ghost n Skulls</option>
+    <option value="section3">Wonder Weapons</option>
+  </select>
+
+  <!-- Content sections -->
+  <div id="section1" class="content">
+    <h2>Easter Egg</h2>
+    <p>This is the content for section 1.</p>
+  </div>
+
+  <div id="section2" class="content">
+    <h2>Ghost n Skulls</h2>
+    <p>This is the content for section 2.</p>
+  </div>
+
+  <div id="section3" class="content">
+    <h2>Wonder Weapons</h2>
+    <p>This is the content for section 3.</p>
+  </div>
+</body>
+</html>
