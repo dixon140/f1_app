@@ -2,18 +2,9 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <link rel="stylesheet" href="./styles.css">
+  <link rel="stylesheet" href="../../styles.css">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Dropdown to Change Content</title>
-  <style>
-    body {
-        background-color: black;
-    }
-    .content {
-      display: none;
-      margin-top: 20px;
-    }
-  </style>
+  <title>Zombies in Spaceland</title>
   <script>
     function showContent() {
       // Hide all content sections
@@ -31,31 +22,35 @@
     }
   </script>
 </head>
-<body>
-  <h1>Zombies In Spaceland</h1>
+<body class="game">
 
-  <!-- Dropdown menu -->
-  <select id="contentDropdown" onchange="showContent()">
-    <option value="">-- Select an Option --</option>
-    <option value="section1">Easter Egg</option>
-    <option value="section2">Ghost n Skulls</option>
-    <option value="section3">Wonder Weapons</option>
-  </select>
+    <h1>Cod Zombie Guides</h1>
+    <h2>Beast from Beyond</h2>
+
+    <div class="dropdown-container">
+      <select id="contentDropdown" onchange="showContent()">
+        <option value="">-- Select an Option --</option>
+        <option value="section1">Easter Egg</option>
+        <option value="section2">Skull Breaker</option>
+        <option value="section3">Venom-X</option>
+      </select>
+    </div>
+
 
   <!-- Content sections -->
   <div id="section1" class="content">
     <h2>Easter Egg</h2>
-    <p>This is the content for section 1.</p>
+    <p>This is the content for the Easter Egg.</p>
   </div>
 
   <div id="section2" class="content">
-    <h2>Ghost n Skulls</h2>
-    <p>This is the content for section 2.</p>
+    <h2>Skull Breaker</h2>
+    <p>This is the content for Skull Breaker.</p>
   </div>
 
   <div id="section3" class="content">
-    <h2>Wonder Weapons</h2>
-    <p>This is the content for section 3.</p>
+    <h2>Venom-X</h2>
+    <p>This is the content for the Venom-X.</p>
   </div>
 </body>
 </html>

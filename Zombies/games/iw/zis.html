@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="../../styles.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Zombies in Spaceland</title>
+  <script>
+    function showContent() {
+      // Hide all content sections
+      const sections = document.querySelectorAll('.content');
+      sections.forEach(section => section.style.display = 'none');
+      
+      // Get the selected value from the dropdown
+      const selectedValue = document.getElementById('contentDropdown').value;
+
+      // Show the selected content section
+      const selectedContent = document.getElementById(selectedValue);
+      if (selectedContent) {
+        selectedContent.style.display = 'block';
+      }
+    }
+  </script>
+</head>
+<body class="game">
+
+    <h1>Cod Zombie Guides</h1>
+    <h2>Zombies in Spaceland</h2>
+
+    <div class="dropdown-container">
+      <select id="contentDropdown" onchange="showContent()">
+        <option value="">-- Select an Option --</option>
+        <option value="section1">Easter Egg</option>
+        <option value="section2">Ghost n Skulls</option>
+        <option value="section3">Wonder Weapons</option>
+      </select>
+    </div>
+
+
+  <!-- Content sections -->
+  <div id="section1" class="content">
+    <h2>Easter Egg</h2>
+    <p>This is the content for the Easter Egg.</p>
+  </div>
+
+  <div id="section2" class="content">
+    <h2>Ghost n Skulls</h2>
+    <p>This is the content for Ghost n Skulls.</p>
+  </div>
+
+  <div id="section3" class="content">
+    <h2>Wonder Weapons</h2>
+    <p>This is the content for the Wonder Weapons.</p>
+  </div>
+</body>
+</html>

@@ -1,15 +1,38 @@
+.dropdown-container {
+    padding-top: 20px;
+    text-align: right;
+    padding-right: 100px;
+  }
+
 @font-face {
-    font-family: BabasNeue;
-    src: url(../BebasNeue-Regular.otf);
+    font-family: Ubuntu;
+    src: url(./Ubuntu/Ubuntu-Regular.ttf);
 }
 @font-face {
     font-family: SourceSans3;
     src: url(../SourceSans3-Regular.ttf);
 }
+#contentDropdown {
+    width: 250px;
+    height: 30px;
+    text-align: center;
+}
+@media (max-width: 720px) {
+    .dropdown-container {
+      padding-right: 0px;
+    }
+    #contentDropdown {
+        width: 150px;
+    }
+  }
+.content {
+display: none;
+margin-top: 20px;
+}
 h1 {
     display: block;
     text-align: center;
-    font-family: BabasNeue, Arial, Helvetica, sans-serif;
+    font-family: Ubuntu, Arial, Helvetica, sans-serif;
     font-size: 50px;
     color: white;
     margin-bottom: 10px;
@@ -34,6 +57,10 @@ p {
     margin-top: 15px;
 }
 
+a {
+    text-decoration: none;
+}
+
 fieldset {
     display: block;
     text-align: center;
@@ -44,9 +71,16 @@ fieldset {
 .page {
     background-color: #121212;
 }
-
+.image-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 20px;
+    flex-wrap: wrap;
+}
 .image {
-    display: block;
+    text-align: center;
+    display: inline-block;
     margin-left: auto;
     margin-right: auto;
     width:400px;
@@ -194,4 +228,7 @@ a {
 .win {
     color: gold;
     font-family: SourceSans3;
+}
+.game {
+    background-color: black;
 }
