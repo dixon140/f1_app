@@ -1,7 +1,7 @@
 .dropdown-container {
     padding-top: 20px;
     text-align: right;
-    padding-right: 100px;
+    padding-right: 70px;
   }
 
 @font-face {
@@ -17,7 +17,7 @@
     height: 30px;
     text-align: center;
 }
-@media (max-width: 720px) {
+@media (max-width: 1200px) {
     .dropdown-container {
       padding-right: 0px;
     }
@@ -25,9 +25,40 @@
         width: 150px;
     }
   }
-.content {
-display: none;
-margin-top: 20px;
+/* Image wrapper with relative positioning */
+.image-wrapper {
+    position: relative;
+    display: inline-block;
+}
+
+/* Images should fit within their container */
+.image-wrapper img {
+    width: 300px;
+    height: 200px;
+    display: block;
+    object-fit: cover;
+}
+
+/* Text over the image */
+.image-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, 200%);
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    text-shadow: 2px 2px 5px black;
+    white-space: nowrap;
+    pointer-events: none; /* Ensures the text won't interfere with the click */
+}
+  .content {
+    max-width: 600px;  /* Restrict the maximum width */
+    margin: 0 auto;    /* Center the content horizontally */
+    padding: 10px;     /* Optional padding for better readability */
+    line-height: 1.6;  /* Adjust line spacing for readability */
+    display: none;
+    margin-top: 20px;
 }
 h1 {
     display: block;
@@ -84,7 +115,6 @@ fieldset {
     margin-left: auto;
     margin-right: auto;
     width:400px;
-
     margin-bottom: 10px;
 }
 .image {
@@ -94,7 +124,7 @@ fieldset {
     opacity: 1.0;
 }
 
-@media only screen and (min-width: 700px) {
+@media only screen and (min-width: 0px) {
     .image {
         display: block;
         margin-right: auto;
@@ -156,78 +186,6 @@ a {
     font-family: SourceSans3;
     margin: 0 5px;
     
-}
-.stand {
-    margin-top: 5px;
-    margin-bottom:5px
-}
-.space {
-    margin-top: 20px;
-}
-.standings {
-    width: 350px;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.standhr {
-    width: 190px;
-}
-
-.rad {
-    position: absolute;
-    opacity: 0;
-    width: 0;
-    height: 0;
-}
-[type=radio] + img {
-    opacity: 50%;
-    cursor: pointer;
-}
-
-[type=radio]:checked + img {
-    opacity: 100%;
-}
-
-.check {
-    position:absolute;
-    opacity: 0;
-    width: 0;
-    height: 0;
-}
-
-[type=checkbox]:not(:checked) + .lock {
-    opacity: 50%;
-}
-
-[type=checkbox]:checked + .lock {
-    opacity: 100%;
-}
-
-.lock {
-    width: 30px;
-    padding-bottom: 2.2em;
-    padding-left: 2em;
-}
-
-.team {
-    width: 80px;
-    margin: 10px;
-}
-
-
-.submit {
-    display: block;
-    width: 50px;
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: 100px;
-    margin-top: 20px;
-}
-
-.win {
-    color: gold;
-    font-family: SourceSans3;
 }
 .game {
     background-color: black;
