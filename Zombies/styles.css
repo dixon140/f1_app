@@ -15,6 +15,9 @@
     width: 250px;
     height: 30px;
     text-align: center;
+    background-color: #3b3b3b;
+    border-color:#3b3b3b;
+    color:white;
 }
 @media (max-width: 1200px) {
     .dropdown-container {
@@ -24,13 +27,12 @@
         width: 150px;
     }
   }
-/* Image wrapper with relative positioning */
+
 .image-wrapper {
     position: relative;
     display: inline-block;
 }
 
-/* Images should fit within their container */
 .image-wrapper img {
     width: 300px;
     height: 200px;
@@ -38,7 +40,7 @@
     object-fit: cover;
 }
 
-/* Text over the image */
+
 .image-text {
     position: absolute;
     top: 50%;
@@ -49,13 +51,15 @@
     font-weight: bold;
     text-shadow: 2px 2px 5px black;
     white-space: nowrap;
-    pointer-events: none; /* Ensures the text won't interfere with the click */
+    pointer-events: none;
 }
   .content {
-    max-width: 600px;  /* Restrict the maximum width */
-    margin: 0 auto;    /* Center the content horizontally */
-    padding: 10px;     /* Optional padding for better readability */
-    line-height: 1.6;  /* Adjust line spacing for readability */
+    
+    border: 2px solid white;
+    max-width: 600px;  
+    margin: 0 auto;
+    padding: 10px;     
+    line-height: 1.6;
     display: none;
     margin-top: 20px;
 }
@@ -72,7 +76,7 @@ h2 {
     display: block;
     text-align: center;
     color: white;
-    font-family: SourceSans3, Arial, Helvetica, sans-serif;
+    font-family: Ubuntu, Arial, Helvetica, sans-serif;
     margin-bottom: 15px;
     
 }
@@ -81,7 +85,7 @@ h3 {
     display: block;
     text-align: center;
     color: white;
-    font-family: SourceSans3, Arial, Helvetica, sans-serif;
+    font-family: Ubuntu, Arial, Helvetica, sans-serif;
     margin-bottom: 15px;
     margin-top: -10px
     
@@ -89,7 +93,7 @@ h3 {
 p {
     display: block;
     text-align: center;
-    font-family: SourceSans3, Arial, Helvetica, sans-serif;
+    font-family: Ubuntu, Arial, Helvetica, sans-serif;
     color: white;
 }
 .label {
@@ -162,4 +166,7 @@ a {
 }
 .game {
     background-color: #121212;
+}
+hr {
+    margin-bottom: -10px;
 }
