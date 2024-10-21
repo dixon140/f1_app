@@ -1,5 +1,4 @@
 .dropdown-container {
-    padding-top: 20px;
     text-align: right;
     padding-right: 70px;
   }
@@ -70,11 +69,21 @@ h1 {
 }
 h2 {
     font-size: 35px;
-    margin-bottom: -5px;
     display: block;
     text-align: center;
     color: white;
     font-family: SourceSans3, Arial, Helvetica, sans-serif;
+    margin-bottom: 15px;
+    
+}
+h3 {
+    font-size: 25px;
+    display: block;
+    text-align: center;
+    color: white;
+    font-family: SourceSans3, Arial, Helvetica, sans-serif;
+    margin-bottom: 15px;
+    margin-top: -10px
     
 }
 p {
@@ -109,7 +118,7 @@ fieldset {
     margin-top: 20px;
     flex-wrap: wrap;
 }
-.image {
+.poster {
     text-align: center;
     display: inline-block;
     margin-left: auto;
@@ -117,10 +126,10 @@ fieldset {
     width:200px;
     margin-bottom: 10px;
 }
-.image {
+img {
     opacity: 0.5;
 }
-.image:hover {
+img:hover {
     opacity: 1.0;
 }
 
@@ -139,54 +148,18 @@ fieldset {
     }
 }
 
-.picks {
-    display: block;
-    width: 325px;
-    margin-left: auto;
-    margin-right: auto;
-}
-.center {
-    display: block;
-    width: 50px;
-    margin-left: auto;
-    margin-right: auto;
-}
-.text {
-    display: block;
-    height: 30px;
-}
 
-.input-box {
-    width: 305px;
-    height: 20px;
-    font-size: 18px;
-    text-align: center;
-    background-color: lightgray;
-    color: black;
-    
-}
-::placeholder {
-    color: black;
-    opacity: 0.6;
-}
-@media only screen and (min-width: 1000px) {
-    .input-box {
-        width: 320px;
-        height: 20px;
-        font-size: 18px;
-        text-align: center;
-    }
-}
 nav {
     display: block;
-    text-align: center;
+    text-align:left;
+    padding-left: 4%;
 }
 a {
     color: white;
     font-family: SourceSans3;
-    margin: 0 5px;
+    display: inline;
     
 }
 .game {
-    background-color: black;
+    background-color: #121212;
 }
