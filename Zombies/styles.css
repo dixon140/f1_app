@@ -104,7 +104,9 @@ p {
 a {
     text-decoration: none;
 }
-
+img {
+    opacity: 0.5;
+}
 fieldset {
     display: block;
     text-align: center;
@@ -130,7 +132,7 @@ fieldset {
     width:200px;
     margin-bottom: 10px;
 }
-img {
+.img {
     opacity: 0.5;
 }
 img:hover {
@@ -169,4 +171,33 @@ a {
 }
 hr {
     margin-bottom: -10px;
+}
+
+.cont {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+}
+
+.image {
+    width: 100px;
+    height: 100px;
+    cursor:pointer;
+    border: 2px solid transparent;
+}
+
+.image.selected {
+    opacity:100%;
+    border-color:red;
+}
+.result-container img {
+    opacity: 1.0;
+    cursor:default;
+}
+.result-container {
+    margin-top: 20px;
+    display: flex;
+    gap: 10px;
+    justify-content: center;
 }
