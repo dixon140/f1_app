@@ -1,8 +1,8 @@
 const lists = [
     ["n", "ball", "anger", "v", "x", "vslice"],
     ["mount", "vslice", "angel", "a", "plus", "n"],
-    ["a", "vslice", "plus", "angel", "mount", "n"],
-    ["angel", "v", "anger", "x", "vslice", "ball"],
+    ["a", "vslice", "plus", "bird", "mount", "n"],
+    ["a", "v", "anger", "x", "vslice", "ball"],
     ["n", "scissors", "anger", "ball", "x", "vslice"],
     ["v", "scissors", "x", "ball", "vslice", "angel"]
 ];
