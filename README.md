@@ -124,6 +124,70 @@ A full-stack web application for managing Formula 1 race data, including drivers
    - Race results
    - Season statistics
 
+## Application Pages
+
+### Login Page
+[Insert Login Page Screenshot]
+
+The login page provides secure authentication for users. It features:
+- Username and password authentication
+- Error handling for invalid credentials
+- Clean and intuitive interface
+
+### Dashboard
+[Insert Dashboard Screenshot]
+
+The dashboard serves as the main overview page, displaying:
+- Quick access to key statistics
+- Summary of recent race results
+- Current season highlights
+- Navigation to other sections
+
+### Drivers Standings
+[Insert Drivers Standings Screenshot]
+
+The drivers standings page shows:
+- Current championship standings
+- Points per driver
+- Race wins and podiums
+- Interactive sorting and filtering options
+
+### Team Standings
+[Insert Team Standings Screenshot]
+
+The team standings page displays:
+- Constructor championship standings
+- Total team points
+- Performance metrics
+- Historical team data
+
+### Race Results
+[Insert Race Results Screenshot]
+
+The race results page features:
+- Detailed race-by-race results
+- Race statistics and highlights
+- Filtering by race and season
+- Comprehensive race information
+
+### Season Statistics
+[Insert Season Statistics Screenshot]
+
+The season statistics page provides:
+- Comprehensive season overview
+- Performance trends
+- Statistical analysis
+- Key season highlights
+
+### Admin Dashboard
+[Insert Admin Dashboard Screenshot]
+
+The admin dashboard allows for:
+- Data management and updates
+- User administration
+- System configuration
+- Database maintenance
+
 ## Development
 
 - Backend API runs on `http://127.0.0.1:5000`
