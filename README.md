@@ -127,7 +127,7 @@ A full-stack web application for managing Formula 1 race data, including drivers
 ## Application Pages
 
 ### Login Page
-[Insert Login Page Screenshot]
+![Login Page](docs/images/login-page.png)
 
 The login page provides secure authentication for users. It features:
 - Username and password authentication
@@ -135,7 +135,7 @@ The login page provides secure authentication for users. It features:
 - Clean and intuitive interface
 
 ### Dashboard
-[Insert Dashboard Screenshot]
+![Dashboard](docs/images/dashboard.png)
 
 The dashboard serves as the main overview page, displaying:
 - Quick access to key statistics
@@ -144,7 +144,7 @@ The dashboard serves as the main overview page, displaying:
 - Navigation to other sections
 
 ### Drivers Standings
-[Insert Drivers Standings Screenshot]
+![Drivers Standings](docs/images/drivers-standings.png)
 
 The drivers standings page shows:
 - Current championship standings
@@ -153,7 +153,7 @@ The drivers standings page shows:
 - Interactive sorting and filtering options
 
 ### Team Standings
-[Insert Team Standings Screenshot]
+![Team Standings](docs/images/team-standings.png)
 
 The team standings page displays:
 - Constructor championship standings
@@ -162,7 +162,7 @@ The team standings page displays:
 - Historical team data
 
 ### Race Results
-[Insert Race Results Screenshot]
+![Race Results](docs/images/race-results.png)
 
 The race results page features:
 - Detailed race-by-race results
@@ -171,7 +171,7 @@ The race results page features:
 - Comprehensive race information
 
 ### Season Statistics
-[Insert Season Statistics Screenshot]
+![Season Statistics](docs/images/season-statistics.png)
 
 The season statistics page provides:
 - Comprehensive season overview
@@ -180,7 +180,7 @@ The season statistics page provides:
 - Key season highlights
 
 ### Admin Dashboard
-[Insert Admin Dashboard Screenshot]
+![Admin Dashboard](docs/images/admin-dashboard.png)
 
 The admin dashboard allows for:
 - Data management and updates
