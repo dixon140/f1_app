@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="../../styles.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Liberty Falls</title>
+  <script>
+    function showContent() {
+      // Hide all content sections
+      const sections = document.querySelectorAll('.content');
+      sections.forEach(section => section.style.display = 'none');
+      
+      // Get the selected value from the dropdown
+      const selectedValue = document.getElementById('contentDropdown').value;
+
+      // Show the selected content section
+      const selectedContent = document.getElementById(selectedValue);
+      if (selectedContent) {
+        selectedContent.style.display = 'block';
+      }
+    }
+  </script>
+</head>
+
+<body class="game">
+  
+    <h1>Cod Zombie Guides</h1>
+    
+    <nav>
+        <a href="../../zombies.html"><p style="display: inline;">Games </p></a><a href="bo6.html"><p style="display: inline;"><b style="color: orange;">/</b> Black Ops 6 </p></a><p style="display: inline;"><b style="color: orange;">/</b> Liberty Falls</p>
+    </nav>
+    <hr>
+    <h2>Liberty Falls</h2>
+    <div class="dropdown-container">
+      <select id="contentDropdown" onchange="showContent()">
+        <option value="">-- Select a Guide --</option>
+        <option value="section1">Power</option>
+        <option value="section2">Pack a Punch</option>
+        <option value="section3">Easter Egg</option>
+      </select>
+    </div>
+
+
+  <!-- Content sections -->
+  <div id="section1" class="content">
+    <h3>Power</h3>
+    <p>This is the content for Power.</p>
+  </div>
+
+  <div id="section2" class="content">
+    <h3>Pack a Punch</h3>
+    <p>This is the content for Pack a Punch.</p>
+  </div>
+
+  <div id="section3" class="content">
+    <h3>Easter Egg</h3>
+    <p>This is the content for the Easter Egg.</p>
+  </div>
+</body>
+</html>

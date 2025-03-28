@@ -28,4 +28,7 @@ yarn-error.log*
 .idea/
 .vscode/
 *.swp
-*.swo 
+*.swo
+
+# Project specific
+unlock.png
