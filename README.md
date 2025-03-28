@@ -133,15 +133,3 @@ A full-stack web application for managing Formula 1 race data, including drivers
 ## Database
 
 The application uses SQLite for data storage. The database file (`f1_database.db`) is located in the server directory.
-
-## Contributing
-
-1. Fork the repository
-2. Create a new branch for your feature
-3. Commit your changes
-4. Push to your branch
-5. Create a Pull Request
-
-## License
-
-This project is licensed under the MIT License - see the LICENSE file for details. 
