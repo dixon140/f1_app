@@ -134,15 +134,6 @@ The login page provides secure authentication for users. It features:
 - Error handling for invalid credentials
 - Clean and intuitive interface
 
-### Dashboard
-![Dashboard](docs/images/dashboard.png)
-
-The dashboard serves as the main overview page, displaying:
-- Quick access to key statistics
-- Summary of recent race results
-- Current season highlights
-- Navigation to other sections
-
 ### Drivers Standings
 ![Drivers Standings](docs/images/drivers-standings.png)
 
@@ -150,7 +141,7 @@ The drivers standings page shows:
 - Current championship standings
 - Points per driver
 - Race wins and podiums
-- Interactive sorting and filtering options
+- Sorting by points
 
 ### Team Standings
 ![Team Standings](docs/images/team-standings.png)
@@ -158,35 +149,25 @@ The drivers standings page shows:
 The team standings page displays:
 - Constructor championship standings
 - Total team points
-- Performance metrics
-- Historical team data
 
 ### Race Results
 ![Race Results](docs/images/race-results.png)
 
 The race results page features:
 - Detailed race-by-race results
-- Race statistics and highlights
-- Filtering by race and season
 - Comprehensive race information
 
 ### Season Statistics
 ![Season Statistics](docs/images/season-statistics.png)
 
 The season statistics page provides:
-- Comprehensive season overview
-- Performance trends
-- Statistical analysis
-- Key season highlights
+- Season stats for players
 
 ### Admin Dashboard
 ![Admin Dashboard](docs/images/admin-dashboard.png)
 
 The admin dashboard allows for:
 - Data management and updates
-- User administration
-- System configuration
-- Database maintenance
 
 ## Development
 
