@@ -24,6 +24,7 @@ import {
 import LogoutIcon from '@mui/icons-material/Logout';
 import axios from '../axiosConfig';
 import RaceResults from './RaceResults';
+import { useAuth } from '../AuthContext';
 
 const TabPanel = (props) => {
   const { children, value, index, ...other } = props;
@@ -48,7 +49,8 @@ function a11yProps(index) {
   };
 }
 
-function Dashboard({ isAdmin }) {
+function Dashboard() {
+  const { isAdmin, logout } = useAuth();
   const [value, setValue] = useState(0);
   const [driverStandings, setDriverStandings] = useState([]);
   const [constructorStandings, setConstructorStandings] = useState([]);
@@ -67,15 +69,7 @@ function Dashboard({ isAdmin }) {
   };
 
   const handleLogout = async () => {
-    try {
-      const response = await axios.post('/api/auth/logout');
-      if (response.data.message === 'Logged out successfully') {
-        window.location.reload();
-      }
-    } catch (error) {
-      console.error('Logout failed:', error);
-      alert('Failed to logout. Please try again.');
-    }
+    await logout();
   };
 
   useEffect(() => {

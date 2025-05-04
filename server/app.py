@@ -5,6 +5,7 @@ from datetime import datetime, date
 from sqlalchemy.exc import IntegrityError
 from flask_login import LoginManager, UserMixin, login_user, login_required, logout_user, current_user
 from flask_bcrypt import Bcrypt
+from sqlalchemy import text
 
 app = Flask(__name__)
 CORS(app, supports_credentials=True)  # Enable CORS with credentials support
@@ -196,50 +197,37 @@ def hello_world():
 @app.route('/api/drivers/standings')
 def get_driver_standings():
     try:
-        # Calculate driver points and statistics from race results
-        drivers = db.session.query(
-            Driver.driver_id,
-            Driver.name,
-            Driver.nationality,
-            Driver.number,
-            Driver.code,
-            db.func.sum(RaceResult.points_earned).label('total_points'),
-            db.func.count(
-                db.case(
-                    (RaceResult.finish_position == 1, 1),
-                    else_=None
-                )
-            ).label('total_wins'),
-            db.func.count(
-                db.case(
-                    (RaceResult.grid_position == 1, 1),
-                    else_=None
-                )
-            ).label('pole_positions'),
-            db.func.count(
-                db.case(
-                    (RaceResult.finish_position <= 3, 1),
-                    else_=None
-                )
-            ).label('podiums')
-        ).join(RaceResult, Driver.driver_id == RaceResult.driver_id
-        ).group_by(Driver.driver_id
-        ).order_by(db.text('total_points DESC')
-        ).all()
-
-        # Convert to list of dictionaries
+        # Using prepared statement for complex standings calculation
+        query = text("""
+            SELECT 
+                d.driver_id,
+                d.name,
+                d.nationality,
+                d.number,
+                d.code,
+                COALESCE(SUM(r.points_earned), 0) as total_points,
+                COUNT(CASE WHEN r.finish_position = 1 THEN 1 END) as total_wins,
+                COUNT(CASE WHEN r.grid_position = 1 THEN 1 END) as pole_positions,
+                COUNT(CASE WHEN r.finish_position <= 3 THEN 1 END) as podiums
+            FROM driver d
+            LEFT JOIN race_result r ON d.driver_id = r.driver_id
+            GROUP BY d.driver_id, d.name, d.nationality, d.number, d.code
+            ORDER BY total_points DESC
+        """)
+        
+        results = db.session.execute(query)
         standings = [
             {
-                'driver_id': d.driver_id,
-                'name': d.name,
-                'nationality': d.nationality,
-                'number': d.number,
-                'code': d.code,
-                'total_points': float(d.total_points) if d.total_points else 0.0,
-                'total_wins': d.total_wins,
-                'pole_positions': d.pole_positions,
-                'podiums': d.podiums
-            } for d in drivers
+                'driver_id': r.driver_id,
+                'name': r.name,
+                'nationality': r.nationality,
+                'number': r.number,
+                'code': r.code,
+                'total_points': float(r.total_points),
+                'total_wins': r.total_wins,
+                'pole_positions': r.pole_positions,
+                'podiums': r.podiums
+            } for r in results
         ]
         
         return jsonify(standings)
@@ -249,46 +237,33 @@ def get_driver_standings():
 @app.route('/api/teams/standings')
 def get_team_standings():
     try:
-        # Calculate team points and statistics from race results
-        teams = db.session.query(
-            Team.team_id,
-            Team.name,
-            Team.nationality,
-            db.func.sum(RaceResult.points_earned).label('total_points'),
-            db.func.count(
-                db.case(
-                    (RaceResult.finish_position == 1, 1),
-                    else_=None
-                )
-            ).label('total_wins'),
-            db.func.count(
-                db.case(
-                    (RaceResult.grid_position == 1, 1),
-                    else_=None
-                )
-            ).label('pole_positions'),
-            db.func.count(
-                db.case(
-                    (RaceResult.finish_position <= 3, 1),
-                    else_=None
-                )
-            ).label('podiums')
-        ).join(RaceResult, Team.team_id == RaceResult.team_id
-        ).group_by(Team.team_id
-        ).order_by(db.text('total_points DESC')
-        ).all()
-
-        # Convert to list of dictionaries
+        # Using prepared statement for complex standings calculation
+        query = text("""
+            SELECT 
+                t.team_id,
+                t.name,
+                t.nationality,
+                COALESCE(SUM(r.points_earned), 0) as total_points,
+                COUNT(CASE WHEN r.finish_position = 1 THEN 1 END) as total_wins,
+                COUNT(CASE WHEN r.grid_position = 1 THEN 1 END) as pole_positions,
+                COUNT(CASE WHEN r.finish_position <= 3 THEN 1 END) as podiums
+            FROM team t
+            LEFT JOIN race_result r ON t.team_id = r.team_id
+            GROUP BY t.team_id, t.name, t.nationality
+            ORDER BY total_points DESC
+        """)
+        
+        results = db.session.execute(query)
         standings = [
             {
-                'team_id': t.team_id,
-                'name': t.name,
-                'nationality': t.nationality,
-                'total_points': float(t.total_points) if t.total_points else 0.0,
-                'total_wins': t.total_wins,
-                'pole_positions': t.pole_positions,
-                'podiums': t.podiums
-            } for t in teams
+                'team_id': r.team_id,
+                'name': r.name,
+                'nationality': r.nationality,
+                'total_points': float(r.total_points),
+                'total_wins': r.total_wins,
+                'pole_positions': r.pole_positions,
+                'podiums': r.podiums
+            } for r in results
         ]
         
         return jsonify(standings)
@@ -412,6 +387,9 @@ def update_race_result(result_id):
             result.status = data['status']
         if 'gap_to_leader' in data:
             result.gap_to_leader = data['gap_to_leader']
+        
+        # Update driver wins
+        result.update_driver_wins()
         
         db.session.commit()
         return jsonify(race_result_to_dict(result))
@@ -628,6 +606,90 @@ def create_admin():
     except Exception as e:
         db.session.rollback()
         print(f"Error creating admin user: {str(e)}")
+
+@app.route('/api/races/<int:race_id>/report', methods=['GET'])
+def get_race_report(race_id):
+    try:
+        # Using prepared statement for race report
+        query = text("""
+            SELECT 
+                r.race_id,
+                r.grand_prix_name,
+                r.season,
+                r.date,
+                r.weather_conditions,
+                r.safety_car_appearances,
+                r.red_flags,
+                rr.result_id,
+                rr.grid_position,
+                rr.finish_position,
+                rr.points_earned,
+                rr.laps_completed,
+                rr.status,
+                rr.gap_to_leader,
+                d.driver_id,
+                d.name as driver_name,
+                d.code as driver_code,
+                d.nationality as driver_nationality,
+                d.number as driver_number,
+                t.team_id,
+                t.name as team_name,
+                t.nationality as team_nationality
+            FROM race r
+            LEFT JOIN race_result rr ON r.race_id = rr.race_id
+            LEFT JOIN driver d ON rr.driver_id = d.driver_id
+            LEFT JOIN team t ON rr.team_id = t.team_id
+            WHERE r.race_id = :race_id
+            ORDER BY rr.finish_position
+        """)
+        
+        results = db.session.execute(query, {'race_id': race_id})
+        
+        # Process results
+        race_report = {
+            'race_details': None,
+            'results': []
+        }
+        
+        for row in results:
+            if not race_report['race_details']:
+                race_report['race_details'] = {
+                    'name': row.grand_prix_name,
+                    'season': row.season,
+                    'date': row.date,
+                    'weather_conditions': row.weather_conditions,
+                    'safety_car_appearances': row.safety_car_appearances,
+                    'red_flags': row.red_flags
+                }
+            
+            if row.result_id:  # Only add if there are results
+                race_report['results'].append({
+                    'driver': {
+                        'name': row.driver_name,
+                        'code': row.driver_code,
+                        'nationality': row.driver_nationality,
+                        'number': row.driver_number
+                    },
+                    'team': {
+                        'name': row.team_name,
+                        'nationality': row.team_nationality
+                    },
+                    'performance': {
+                        'grid_position': row.grid_position,
+                        'finish_position': row.finish_position,
+                        'points_earned': float(row.points_earned) if row.points_earned else 0.0,
+                        'laps_completed': row.laps_completed,
+                        'status': row.status,
+                        'gap_to_leader': row.gap_to_leader
+                    }
+                })
+        
+        if not race_report['race_details']:
+            return jsonify({'error': 'Race not found'}), 404
+            
+        return jsonify(race_report)
+    except Exception as e:
+        return jsonify({'error': str(e)}), 500
 
 application = app
 

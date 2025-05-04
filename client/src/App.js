@@ -1,51 +1,22 @@
-import React, { useState, useEffect } from 'react';
-import { ThemeProvider } from '@mui/material/styles';
-import CssBaseline from '@mui/material/CssBaseline';
-import Dashboard from './components/Dashboard';
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import Login from './components/Login';
-import theme from './theme';
-import axios from './axiosConfig';
+import Dashboard from './components/Dashboard';
+import RaceReport from './components/RaceReport';
+import { useAuth } from './AuthContext';
 
 function App() {
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
-  const [isAdmin, setIsAdmin] = useState(false);
-  const [isLoading, setIsLoading] = useState(true);
+    const { isAuthenticated } = useAuth();
 
-  useEffect(() => {
-    checkAuthStatus();
-  }, []);
-
-  const checkAuthStatus = async () => {
-    try {
-      const response = await axios.get('/api/auth/status');
-      setIsAuthenticated(response.data.authenticated);
-      setIsAdmin(response.data.is_admin || false);
-    } catch (error) {
-      console.error('Auth check failed:', error);
-    } finally {
-      setIsLoading(false);
-    }
-  };
-
-  const handleLoginSuccess = (data) => {
-    setIsAuthenticated(true);
-    setIsAdmin(data.is_admin || false);
-  };
-
-  if (isLoading) {
-    return null; // or a loading spinner
-  }
-
-  return (
-    <ThemeProvider theme={theme}>
-      <CssBaseline />
-      {!isAuthenticated ? (
-        <Login onLoginSuccess={handleLoginSuccess} />
-      ) : (
-        <Dashboard isAdmin={isAdmin} />
-      )}
-    </ThemeProvider>
-  );
+    return (
+        <Router>
+            <Routes>
+                <Route path="/login" element={!isAuthenticated ? <Login /> : <Navigate to="/" />} />
+                <Route path="/" element={isAuthenticated ? <Dashboard /> : <Navigate to="/login" />} />
+                <Route path="/race-report/:raceId" element={isAuthenticated ? <RaceReport /> : <Navigate to="/login" />} />
+            </Routes>
+        </Router>
+    );
 }
 
 export default App;

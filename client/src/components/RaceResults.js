@@ -22,6 +22,9 @@ import {
 } from '@mui/material';
 import EditIcon from '@mui/icons-material/Edit';
 import DeleteIcon from '@mui/icons-material/Delete';
+import { Link } from 'react-router-dom';
+import AssessmentIcon from '@mui/icons-material/Assessment';
+import axios from '../axiosConfig';
 
 const RaceResults = ({ isAdmin }) => {
   const [results, setResults] = useState([]);
@@ -46,11 +49,8 @@ const RaceResults = ({ isAdmin }) => {
   // Fetch race results
   const fetchResults = async () => {
     try {
-      const response = await fetch('http://localhost:5000/api/race-results');
-      if (response.ok) {
-        const data = await response.json();
-        setResults(data);
-      }
+      const response = await axios.get('/api/race-results');
+      setResults(response.data);
     } catch (error) {
       console.error('Error fetching race results:', error);
     }
@@ -60,22 +60,14 @@ const RaceResults = ({ isAdmin }) => {
   const fetchDropdownData = async () => {
     try {
       const [racesRes, driversRes, teamsRes] = await Promise.all([
-        fetch('http://localhost:5000/api/races'),
-        fetch('http://localhost:5000/api/drivers'),
-        fetch('http://localhost:5000/api/teams')
+        axios.get('/api/races'),
+        axios.get('/api/drivers'),
+        axios.get('/api/teams')
       ]);
 
-      if (racesRes.ok && driversRes.ok && teamsRes.ok) {
-        const [racesData, driversData, teamsData] = await Promise.all([
-          racesRes.json(),
-          driversRes.json(),
-          teamsRes.json()
-        ]);
-
-        setRaces(racesData);
-        setDrivers(driversData);
-        setTeams(teamsData);
-      }
+      setRaces(racesRes.data);
+      setDrivers(driversRes.data);
+      setTeams(teamsRes.data);
     } catch (error) {
       console.error('Error fetching dropdown data:', error);
     }
@@ -84,15 +76,12 @@ const RaceResults = ({ isAdmin }) => {
   // Fetch driver's current team and car
   const fetchDriverTeamAndCar = async (driverId) => {
     try {
-      const response = await fetch(`http://localhost:5000/api/drivers/${driverId}/current-team`);
-      if (response.ok) {
-        const data = await response.json();
-        setFormData(prev => ({
-          ...prev,
-          team_id: data.team_id,
-          car_id: data.car_id
-        }));
-      }
+      const response = await axios.get(`/api/drivers/${driverId}/current-team`);
+      setFormData(prev => ({
+        ...prev,
+        team_id: response.data.team_id,
+        car_id: response.data.car_id
+      }));
     } catch (error) {
       console.error('Error fetching driver team and car:', error);
     }
@@ -145,28 +134,18 @@ const RaceResults = ({ isAdmin }) => {
 
   const handleSubmit = async () => {
     try {
-      const url = editingResult
-        ? `http://localhost:5000/api/race-results/${editingResult.result_id}`
-        : 'http://localhost:5000/api/race-results';
+      const url = `/api/race-results${editingResult ? `/${editingResult.result_id}` : ''}`;
+      const method = editingResult ? 'put' : 'post';
       
-      const response = await fetch(url, {
-        method: editingResult ? 'PUT' : 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(formData),
-      });
-
-      if (response.ok) {
+      const response = await axios[method](url, formData);
+      
+      if (response.status === 200 || response.status === 201) {
         fetchResults();
         handleCloseDialog();
-      } else {
-        const error = await response.json();
-        alert(error.error || 'An error occurred');
       }
     } catch (error) {
       console.error('Error saving race result:', error);
-      alert('An error occurred while saving the race result');
+      alert(error.response?.data?.error || 'An error occurred while saving the race result');
     }
   };
 
@@ -176,19 +155,13 @@ const RaceResults = ({ isAdmin }) => {
     }
 
     try {
-      const response = await fetch(`http://localhost:5000/api/race-results/${resultId}`, {
-        method: 'DELETE',
-      });
-
-      if (response.ok) {
+      const response = await axios.delete(`/api/race-results/${resultId}`);
+      if (response.status === 204) {
         fetchResults();
-      } else {
-        const error = await response.json();
-        alert(error.error || 'An error occurred while deleting');
       }
     } catch (error) {
       console.error('Error deleting race result:', error);
-      alert('An error occurred while deleting the race result');
+      alert(error.response?.data?.error || 'An error occurred while deleting the race result');
     }
   };
 
@@ -214,7 +187,7 @@ const RaceResults = ({ isAdmin }) => {
               <TableCell>Finish</TableCell>
               <TableCell>Points</TableCell>
               <TableCell>Status</TableCell>
-              {isAdmin && <TableCell>Actions</TableCell>}
+              <TableCell>Actions</TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
@@ -229,6 +202,17 @@ const RaceResults = ({ isAdmin }) => {
                 </TableCell>
                 <TableCell>{result.points_earned}</TableCell>
                 <TableCell>{result.status}</TableCell>
+                <TableCell>
+                  <Button
+                    component={Link}
+                    to={`/race-report/${result.race_id}`}
+                    startIcon={<AssessmentIcon />}
+                    size="small"
+                    variant="outlined"
+                  >
+                    View Report
+                  </Button>
+                </TableCell>
                 {isAdmin && (
                   <TableCell>
                     <IconButton onClick={() => handleOpenDialog(result)}>
